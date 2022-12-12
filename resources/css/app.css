@@ -79,3 +79,6 @@ body {
     background: crimson;
     color: #fff;
 }
+.not_found {
+    text-align: center;
+}
