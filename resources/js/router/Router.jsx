@@ -8,7 +8,7 @@ const Router = () => {
     <div>
         <Routes>
             <Route path="/" element={<Index />}/>
-            <Route path="/8" element={<NotFound />}/>
+            <Route path="/*" element={<NotFound />}/>
         </Routes>
     </div>
   )
