@@ -5,7 +5,7 @@ const Index = () => {
 
     const navigate = useNavigate()
     const newProduct = () => {
-        navigate("/products/new")
+        navigate("/product/new")
     }
     return (
         <div className='container'>

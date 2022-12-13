@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Index from '../components/products/Index'
+import New from '../components/products/New'
 import NotFound from '../components/NotFound'
 
 const Router = () => {
@@ -8,6 +9,7 @@ const Router = () => {
     <div>
         <Routes>
             <Route path="/" element={<Index />}/>
+            <Route path="/product/new" element={<New />}/>
             <Route path="/*" element={<NotFound />}/>
         </Routes>
     </div>
