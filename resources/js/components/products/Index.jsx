@@ -12,7 +12,7 @@ const Index = () => {
     }
     useEffect(() => {
         getProducts()
-    })
+    },[])
 
     const getProducts = async () => {
         await axios.get('/api/show_product')
