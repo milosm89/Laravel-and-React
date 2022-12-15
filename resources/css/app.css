@@ -85,6 +85,10 @@ body {
 
 /* New Product */
 
+form {
+    width: 100%;
+}
+
 .card_wrapper {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 290px);
