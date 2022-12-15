@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    public function show_product() {
+        $products = Product::all();
+        return response()->json([
+            'products' => $products
+        ],200);
+    }
     public function add_product(Request $request) {
 
         $product = new Product();
@@ -18,8 +23,8 @@ class ProductController extends Controller
                 $uploadedFile = $request->file('photo');
                 
                 if ($uploadedFile) {
-                    $filename = Str::uuid() . '.' . $uploadedFile->getClientOriginalExtension();
-                    Storage::disk('public')->putFileAs('uploadedFiles/', $uploadedFile, $filename);
+                    $filename = time() . '.' . $uploadedFile->getClientOriginalExtension();
+                    $request->file('photo')->move(public_path('/uploadedimages'), $filename);
                     $product->photo = $filename;
                 }
             }else {
