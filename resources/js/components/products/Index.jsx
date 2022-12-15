@@ -20,6 +20,10 @@ const Index = () => {
             setProducts(data.products)
         })
     }
+
+    const editProduct = (id) => {
+        navigate('/product/edit/'+id)
+    }
     return (
         <div className='container'>
             <div className="products_list">
@@ -49,7 +53,7 @@ const Index = () => {
                                 <p>{item.type}</p>
                                 <p>{item.price}</p>
                                 <div>
-                                <button className="btn-icon success">
+                                <button className="btn-icon success" onClick={() => editProduct(item.id)}>
                                     <i className="fas fa-pencil-alt"></i>
                                 </button>
                                 <button className="btn-icon danger">
