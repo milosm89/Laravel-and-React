@@ -60,10 +60,8 @@ const Edit = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Create a FormData object
         const formData = new FormData();
 
-        // Append file to the formData object here
         formData.append('name', name)
         formData.append('description', description)
         formData.append('photo', photo)
@@ -72,7 +70,6 @@ const Edit = () => {
         formData.append('price', price)
 
         try {
-            // We will send formData object as a data to the API URL here.
             const response = await axios.post(`/api/update_product/${id}`, formData, {
                 headers: {"Content-Type": "multipart/form-data"}
             }).then((res) => {

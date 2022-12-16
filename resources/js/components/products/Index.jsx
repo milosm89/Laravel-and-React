@@ -24,6 +24,20 @@ const Index = () => {
     const editProduct = (id) => {
         navigate('/product/edit/'+id)
     }
+    const deleteProduct = async (id) => {
+     
+        try {
+            const response = await axios.get(`api/delete_product/${id}`)
+            .then((res) => {
+                alert("File Deleted Successfully");
+            }).catch((error) => {
+                alert("Error")
+            });
+            getProducts()
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div className='container'>
             <div className="products_list">
@@ -56,7 +70,7 @@ const Index = () => {
                                 <button className="btn-icon success" onClick={() => editProduct(item.id)}>
                                     <i className="fas fa-pencil-alt"></i>
                                 </button>
-                                <button className="btn-icon danger">
+                                <button className="btn-icon danger" onClick={() => deleteProduct(item.id)}>
                                     <i className="far fa-trash-alt"></i>
                                 </button>
                                 </div>
